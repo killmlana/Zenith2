@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZENITH - Student Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      overflow-x: hidden;
+      color: white;
+    }
+
+    header, footer {
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 1rem 2rem;
+    }
+
+    header {
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer {
+      bottom: 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .login-btn {
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .slide-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fadeSlide 30s infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .slide1 { background-image: url('welcome.jpg'); animation-delay: 0s; }
+    .slide2 { background-image: url('calender.jpg'); animation-delay: 6s; justify-content: flex-start; }
+    .slide3 { background-image: url('academics.jpg'); animation-delay: 12s; justify-content: flex-end; }
+    .slide4 { background-image: url('wellness.jpg'); animation-delay: 18s; justify-content: flex-start; }
+    .slide5 { background-image: url('group_study.jpg'); animation-delay: 24s; justify-content: flex-end; }
+
+    @keyframes fadeSlide {
+      0%   { opacity: 0; }
+      8%   { opacity: 1; }
+      20%  { opacity: 1; }
+      28%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .message-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .message-box h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .message-box p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* Why Choose Section */
+    .why-choose-white {
+      position: relative;
+      top: 100vh;
+      background: #fff;
+      color: #222;
+      padding: 5rem 2rem;
+    }
+
+    .why-choose-white h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .why-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .why-row img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .why-text {
+      max-width: 500px;
+      padding: 1rem;
+    }
+
+    .why-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #ff5a36;
+    }
+
+    .why-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .why-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 768px) {
+      .why-row,
+      .why-row.reverse {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">ZENITH</div>
+    <a href="login.html" class="login-btn">Login</a>
+  </header>
+
+  <!-- Slides -->
+  <div class="slide-wrapper slide1">
+    <div class="message-box">
+      <h1>ZENITH - Focus Meets Fun</h1>
+      <p>Your all-in-one student companion for academics, events & wellness</p>
+    </div>
+  </div>
+
+  <div class="slide-wrapper slide2"><div class="message-box"><h1>Email Organizer</h1></div></div>
+  <div class="slide-wrapper slide3"><div class="message-box"><h1>Academic Agent</h1></div></div>
+  <div class="slide-wrapper slide4"><div class="message-box"><h1>Wellness Hub</h1></div></div>
+  <div class="slide-wrapper slide5"><div class="message-box"><h1>Community Builder</h1></div></div>
+
+  <!-- Why Choose ZENITH Section -->
+  <section class="why-choose-white">
+    <h2>Why Choose ZENITH?</h2>
+
+    <div class="why-row">
+      <img src="student1.jpg" alt="Built for Students">
+      <div class="why-text">
+        <h3>Built for Students</h3>
+        <p>ZENITH is crafted with student life at its core—organizing your academics, managing mental wellness, and simplifying routines from morning to midnight.</p>
+      </div>
+    </div>
+
+    <div class="why-row reverse">
+      <img src="ai_tutor.jpg" alt="Smarter with AI">
+      <div class="why-text">
+        <h3>Smarter with AI</h3>
+        <p>From extracting event info in your email to explaining your class notes, ZENITH uses powerful AI to support your productivity and learning curve.</p>
+      </div>
+    </div>
+
+    <div class="why-row">
+      <img src="community.jpg" alt="Community Support">
+      <div class="why-text">
+        <h3>Community Support</h3>
+        <p>Sync calendars, find study partners, or join events—all inside the ZENITH ecosystem. Because every student thrives better with friends.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Zenith - Built for student wellbeing 💡</p>
+  </footer>
+
+</body>
+</html>

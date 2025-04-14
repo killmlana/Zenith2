@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zenith Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfaf6;
+      color: #5c4438;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: #d8c3a5;
+      padding: 15px 40px;
+      display: flex;
+      gap: 25px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    nav a {
+      color: #5c4438;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8b5e3c;
+    }
+
+    .container {
+      flex: 1;
+      padding: 40px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .row {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #fefcf9;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(92, 68, 56, 0.1);
+      padding: 35px 40px; /* Increased padding for bigger boxes */
+      border: 1px solid #e6dcd2;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      width: 380px; /* Increased width */
+      min-height: 200px; /* Increased minimum height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background-color: #f3e9dc;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 15px; /* Increased space */
+      color: #8b5e3c;
+      font-size: 24px; /* Increased font size */
+      transition: color 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover h3 {
+      color: #5c4438;
+    }
+
+    .card p {
+      font-size: 16px; /* Slightly increased font size */
+      text-align: center;
+    }
+
+    .meter-bar {
+      height: 12px;
+      width: 100%;
+      border-radius: 10px;
+      background: linear-gradient(to right, green, orange, red);
+      margin-top: 8px;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 70%;
+      border-radius: 10px;
+      background: transparent;
+    }
+
+    .meter-text {
+      margin-top: 10px;
+      font-size: 13.5px;
+    }
+
+    .academic-agent {
+      width: 380px;
+      min-height: 200px; /* Increased minimum height */
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #ede0d4;
+      color: #5c4438;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="card" id="smart-email-organizer">
+        <h3>📥 Smart Email Organizer</h3>
+        <p>Scans inbox and extracts events, class updates, and admin alerts into your calendar automatically.</p>
+      </div>
+
+      <div class="card academic-agent">
+        <h3>📚 Academic Agent</h3>
+        <p>Fetch notes via Google Classroom and ask questions or generate quizzes instantly.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔥 Cooked Meter</h3>
+        <div class="meter-bar">
+          <div class="meter-fill"></div>
+        </div>
+        <p class="meter-text">You're slightly cooked 😬 — take a break!</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card">
+        <h3>🧘 Mental Health Companion</h3>
+        <p>Get mood check-ins and suggestions like meditation or digital detox days for mental clarity.</p>
+      </div>
+
+      <div class="card">
+        <h3>👫 Community Builder</h3>
+        <p>Sync calendars with friends to plan hangouts or study sessions at mutually free times.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Zenith | Built by Students, for Students
+  </footer>
+
+  <script>
+    // Event listener for the Smart Email Organizer card
+    document.getElementById('smart-email-organizer').addEventListener('click', function() {
+      window.location.href = 'events.html'; // Redirect to the events page
+    });
+  </script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Events List</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4ecd8;
+      padding: 30px;
+      margin: 0;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 18px;
+      background-color: #4b3621;
+      color: #fffefc;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #5d4025;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #333;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #events-container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .event {
+      background-color: #fffefc;
+      border: 1px solid #d8d8c2;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      font-size: 1.1rem;
+    }
+
+    .event:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .event h2 {
+      margin-top: 0;
+      color: #4b3621;
+    }
+
+    .event p {
+      margin: 8px 0;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .event strong {
+      color: #2d2d2d;
+    }
+
+    .event a {
+      color: #b84513;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .event-skeleton {
+      height: 150px;
+      background: #e8e0d1;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    @keyframes pulse {
+      0% { background-color: #e8e0d1; }
+      50% { background-color: #f0e7d8; }
+      100% { background-color: #e8e0d1; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back-btn" href="dashboard.html">← Back to Dashboard</a>
+  <h1>Events List</h1>
+  <div id="events-container">
+    <div class="event-skeleton"></div>
+    <div class="event-skeleton"></div>
+  </div>
+
+  <script>
+    const container = document.getElementById('events-container');
+
+    fetch('http://localhost:8000/extract-events', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      const eventsRaw = data.events;
+      const events = JSON.parse(eventsRaw);
+
+      container.innerHTML = '';
+
+      events.forEach(event => {
+        const eventEl = document.createElement('div');
+        eventEl.classList.add('event');
+        eventEl.innerHTML = `
+          <h2>${event['title']}</h2>
+          <p><strong>Event Name:</strong> ${event['event-name']}</p>
+          <p><strong>Event Date:</strong> ${new Date(event['event-date']).toLocaleDateString()}</p>
+          <p><strong>Email Date:</strong> ${new Date(event['email-date']).toLocaleDateString()}</p>
+          <p><strong>Message:</strong> ${event['message-body'] || 'N/A'}</p>
+          <p><strong>Registration Link:</strong> <a href="${event['registration-link']}" target="_blank">${event['registration-link'] || 'N/A'}</a></p>
+          <p><strong>Registration Fees:</strong> ${event['registration-fees'] || 'N/A'}</p>
+        `;
+        container.appendChild(eventEl);
+      });
+    })
+    .catch(error => {
+      container.innerHTML = '<p style="color: red;">Failed to load events.</p>';
+      console.error('Error fetching events:', error);
+    });
+  </script>
+</body>
+</html>
+

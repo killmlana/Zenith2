@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zenith Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3e9dd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .logo {
+      position: absolute;
+      top: 1px;
+      left: 20px;
+      width: 200px;
+      height: auto;
+      z-index: 10;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #5a4332;
+      margin-bottom: 1.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 0.5rem 0 0.3rem;
+      font-weight: 600;
+      color: #4b3b2d;
+    }
+
+    input {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #a87c6f;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #8b645a;
+    }
+
+    .back-button {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #ddd;
+      color: #5a4332;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      margin-left: 110px;
+    }
+
+    .back-button:hover {
+      background-color: #ccc;
+    }
+
+    .google-login-button {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #a87c6f;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      margin-left: 100px;
+    }
+
+    .google-login-button:hover {
+      background-color: #8b645a;
+    }
+
+    .google-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo2.png" alt="Zenith Logo" class="logo" />
+
+  <div class="login-container">
+    <h2>Welcome to Zenith</h2>
+    <form onsubmit="redirectToDashboard(event)">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="fname" required />
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lname" required />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <button type="submit">Login / Register</button>
+    </form>
+
+    <a href="http://localhost:8090/login">
+      <button class="google-login-button">
+        <img src="google-icon.jpeg" alt="Google" class="google-icon" />
+        Login with Google
+      </button>
+    </a>
+
+    <button class="back-button" onclick="window.location.href='index.html'">Back to Home Page</button>
+  </div>
+
+  <script>
+    function redirectToDashboard(event) {
+      event.preventDefault(); // Prevent form submission
+      window.location.href = "dashboard.html"; // Redirect to Dashboard
+    }
+  </script>
+</body>
+</html>
+
