@@ -37,7 +37,7 @@ CLIENT_CONFIG = {
         "project_id": "zenith-456803",
         "auth_uri": "https://accounts.google.com/o/oauth2/auth",
         "token_uri": "https://oauth2.googleapis.com/token",
-        "client_secret": "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",
+        "client_secret": "",
         "redirect_uris": ["http://localhost:8000/auth/callback"]
     }
 }
